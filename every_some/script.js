@@ -23,8 +23,11 @@ var requests = [
   { url: '/users', status: 'failed' }
 ];
 
-var inProgress;
+var inProgress = false;
 
-inProgress = requests.some(function(request){
-	return request.status === 'pending';
+inProgress = requests.some(function(inProgress, request){
+	if (request.status === 'pending')
+	    inProgress = true;
+
+	return inProgress;
 });
