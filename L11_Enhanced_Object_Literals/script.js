@@ -30,3 +30,24 @@ const canvasDimensions = function(width, initialHeight) {
 }
 
 canvasDimensions(10, 20);
+
+
+/*Refactor to use enhanced literal notation*/
+
+/*Refactor to use enhanced literal notation*/
+
+const color = 'red';
+
+const Car = {
+  color: color,
+  drive() {
+    return 'Vroom!';
+  },
+  getColor() {
+    return this.color;
+  }
+};
+
+Car.drive();
+Car.color;
+Car.getColor();
