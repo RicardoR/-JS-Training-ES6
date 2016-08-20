@@ -15,3 +15,18 @@ const COLORS = { red, blue };
 const fields = ['firstName', 'lastName', 'phoneNumber'];
 
 const props = { fields };
+
+
+/*Literals in Functions*/
+
+/*Refactor to use enhanced literal notation*/
+
+const canvasDimensions = function(width, initialHeight) {
+  const height = initialHeight * 9 /16;
+  return {
+    width,
+    height
+  };
+}
+
+canvasDimensions(10, 20);
