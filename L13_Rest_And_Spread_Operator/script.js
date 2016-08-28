@@ -21,4 +21,14 @@ function join(array1, array2) {
 
 var array1 = ['a', 'b', 'c'];
 var array2 = ['1', '2', '3'];
-join(array1, array2)
+join(array1, array2);
+
+
+
+/*Mixing Rest and Spread*/
+
+/*Refactor the following to use the only the rest operator*/
+
+function unshift(array, ...items) {
+   return [...items, ...array];
+}
