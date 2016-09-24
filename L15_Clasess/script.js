@@ -14,7 +14,7 @@ You are a game developer tasked with setting up some basic classes for a new gam
     }
   }
 
-  const monster = new Monster({name:"Lestrigones"});
+ const monster = new Monster({name:"Lestrigones"});
 
 
 /*Subclassing Monsters*/
