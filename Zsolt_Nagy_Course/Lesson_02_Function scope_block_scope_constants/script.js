@@ -41,23 +41,19 @@ var guessMe1 = 1;
 let guessMe2 = 2;
 
 {
-    try {
-        let guessMe2 = 3;
-        console.log( guessMe1, guessMe2 );
-    } catch( _ ) {}
-
-    let guessMe2 = 3;
-    console.log( guessMe1, guessMe2 );
+   let guessMe2 = 3;
+   console.log( guessMe1, guessMe2 );
+   console.log( guessMe1, guessMe2 );
 }
 
 console.log( guessMe1, guessMe2 );
 
-var displayGuess = () => {
+(() => {
     var guessMe1 = 5;
     console.log( guessMe1 );
 
     let guessMe2 = 6;
     console.log( guessMe1, guessMe2 );
-};
-displayGuess();
+})();
+
 console.log( guessMe1, guessMe2 );
