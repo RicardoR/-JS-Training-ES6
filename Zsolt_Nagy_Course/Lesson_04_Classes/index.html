@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="script.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
 </head>
 <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>ES2015 Lesson 4: Classes</h1>
+            <p class="lead">Ejercicios de la cuarta lección del curso sobre es2015 de <a href="http://www.zsoltnagy.eu/es2015-lesson-4-classes/">Zsolt Nagy</a> </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-xs-12">
+            <div class="row">
+                <p><strong>Exercise 1.</strong> Create a <code>PlayerCharacter</code> and a <code>NonPlayerCharacter</code> with a common anchestor <code>Character</code>. The characters are located in a 10×10 game field. All characters appear at a random location.  Create the three classes, and make sure you can query where each character is.</p>
+                <p><strong>Exercise 2.</strong> Each character has a direction (up, down, left, right).  Player characters initially go right, and their direction can be changed using the <code>faceUp</code>, <code>faceDown</code>, <code>faceLeft</code>, <code>faceRight</code> methods. Non-player characters move randomly. A move is automatically taken every 5 seconds in real time. Right after the synchronized moves, each character console logs its position. The player character can only influence the direction he is facing. When a player meets a non-player character, the non-player character is eliminated from the game, and the player’s score is increased by 1.</p>
+                <p><strong>Exercise 3.</strong> Make sure the <code>Character</code> class cannot be instantiated.</p>
+            </div>
+        </div>
+        <div class="col-xs-12" >
+            <div class="row" id="salida">
 
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

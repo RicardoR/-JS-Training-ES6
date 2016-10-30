@@ -1,3 +1,4 @@
+// http://www.zsoltnagy.eu/lesson-3-default-arguments/
 /*
  Exercise 1. Write a function that executes a callback function after a given delay in milliseconds.
  The default value of delay is one second.

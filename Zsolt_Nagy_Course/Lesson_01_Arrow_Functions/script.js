@@ -1,3 +1,4 @@
+// http://www.zsoltnagy.eu/es2015-lesson-1-arrow-functions/
 //Exercise 1: Write an arrow function that returns the string 'Hello World!'.
 
 var salutation = () => console.log("Hello World!");
