@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <style>
         ul{
             list-style-type: none;
@@ -20,71 +21,60 @@
     </div>
     <div class="container">
         <div class="col-xs-12">
-            <div class="row">
-                <p><strong>Exercise 1.</strong> Swap two variables using one destructuring assignment.</p>
-                <p><code>
-                    let car1 = 'Renault'; <br>
-                    let car2 = 'Ford';  <br>
-                    [car1, car2] = [car2, car1];</code></p>
-                <hr>
-                <p><strong>Exercise 2.</strong> Complete the below function that calculates the nth fibonacci number in the sequence with one destructuring assignment! The definition of Fibonacci numbers is the following:</p>
-                <ul>
-                    <li><code>fib( 0 ) = 0</code></li>
-                    <li><code>fib( 1 ) = 1</code></li>
-                    <li><code>fib( n ) = fib( n-1 ) + fib( n-2 );</code></li>
-                </ul>
-                <br>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Solución</div>
-                    <div class="panel-body">
-                        <code>
-                            function fib( n ) { <br>
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>let fibCurrent = 1; <br>
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>  let fibLast = 0; <br>
+            <p><strong>Exercise 1.</strong> Swap two variables using one destructuring assignment.</p>
+            <pre class="prettyprint js">
+    &nbsp
+    let car1 = 'Renault'; 
+    let car2 = 'Ford'; 
+    [car1, car2] = [car2, car1];
+            </pre>
+            <hr>
+            <p><strong>Exercise 2.</strong> Complete the below function that calculates the nth fibonacci number in the sequence with one destructuring assignment! The definition of Fibonacci numbers is the following:</p>
+            <ul>
+                <li><code>fib( 0 ) = 0</code></li>
+                <li><code>fib( 1 ) = 1</code></li>
+                <li><code>fib( n ) = fib( n-1 ) + fib( n-2 );</code></li>
+            </ul>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
 
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>  if ( n < 0 ) return NaN; <br>
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>  if ( n <= 1 ) return n; <br>
+    function fib( n ) { 
+        let fibCurrent = 1; 
+        let fibLast = 0; 
+        if ( n < 0 ) return NaN; 
+        if ( n <= 1 ) return n; 
+        for ( let fibIndex = 1; fibIndex < n; ++fibIndex ) { 
+            [fibCurrent, fibLast] = [fibCurrent + fibLast, fibCurrent] 
+        } 
+        return fibCurrent; 
+    }
+    fib(6);
+            </pre>
+            <hr>
+            <p><strong>Exercise 3.</strong> Determine all the bindings in the following assignment, and describe the execution:</p>
+            <p>
+            <code>
+                let node = { left : { left: 3, right: 4 }, right: 5 }; <br>
 
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>  for ( let fibIndex = 1; fibIndex < n; ++fibIndex ) { <br>
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>       [fibCurrent, fibLast] = [fibCurrent + fibLast, fibCurrent] <br>
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>   } <br>
+                let { loft : {}, right : val } = node;
+            </code>
+            </p>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
 
-                            <span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>   return fibCurrent; <br>
-                            }<br>
+    undefined
+            </pre>
+            <hr>
+            <p><strong>Exercise 4</strong> Create one destructuring expression that declares exactly one variable to retrieve <code>x.A[2]</code>.</p>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
 
-                            fib(6); <br>
-                        </code>
-                    </div>
-                </div>
-                <hr>
-                <p><strong>Exercise 3.</strong> Determine all the bindings in the following assignment, and describe the execution:</p>
-                <p>
-                    <code>
-                        let node = { left : { left: 3, right: 4 }, right: 5 }; <br>
-
-                        let { loft : {}, right : val } = node;
-                    </code>
-                </p>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Solución</div>
-                    <div class="panel-body">
-                        <code>
-                            undefined
-                        </code>
-                    </div>
-                </div>
-                <hr>
-                <p><strong>Exercise 4</strong> Create one destructuring expression that declares exactly one variable to retrieve <code>x.A[2]</code>.</p>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Solución</div>
-                    <div class="panel-body">
-                        <code>
-                            let x = { A: [ 't', 'e', 's', 't' ] };
-                            let { A : [, , variable] } = x;
-                        </code>
-                    </div>
-                </div>
-            </div>
+    let x = { A: [ 't', 'e', 's', 't' ] };
+    let { A : [, , variable] } = x;
+            </pre>
             <hr>
             <p><strong>Exercise 5</strong> Suppose the following configuration object of a financial chart is given:</p>
             <p>
@@ -105,18 +95,26 @@
                     };
                 </code>
             </p>
-            <div class="panel panel-default">
-                <div class="panel-heading">Solución</div>
-                <div class="panel-body">
-                    <code>
-                        function drawChart( data, {chartType = 0, bullColor = 'green', bearColor = 'red', days = 30 } ) { <br>
-                            console.log( chartType, bullColor, bearColor, days );
-                        };
-                    </code>
-                </div>
-            </div>
-        </div>
-    </div>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
+
+    function drawChart( data, {chartType = 0, bullColor = 'green', bearColor = 'red', days = 30 } ) {
+        console.log( chartType, bullColor, bearColor, days );
+    };
+            </pre>
+        <hr>
+        <p><strong>Exercise 6</strong>Modify your solution in Question 5 such that the user may omit the <code>option</code> parameter, making its value <code>undefined</code>.</p>
+        <br>
+        <h4>Solución</h4>
+        <pre class="prettyprint">
+
+    function drawChart(data, options = {}){
+        _drawChart(data, options);
+    }
+        </pre>
+        </div> <!-- col-xs-12 -->
+    </div> <!-- container -->
     <script src="script.js"></script>
 </body>
 </html>
