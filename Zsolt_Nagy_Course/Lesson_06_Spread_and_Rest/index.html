@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        .transparent {
+            background: white!important;
+            border: solid white;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>ES2015 Lesson 6: Spreat and Rest</h1>
+            <p class="lead">Ejercicios de la sexta lección del curso sobre es2015 de <a href="http://www.zsoltnagy.eu/es2015-lesson-6-spread-and-rest/">Zsolt Nagy</a> </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-xs-12">
+            <p><strong>Exercise 1.</strong> Exercise 1. Make a shallow copy of an array of any length in one destructuring assignment! If you don’t know what a shallow copy is, make sure you read about it, as you will need these concepts during your programming career. I can highly recommend my article on Cloning Objects in JavaScript..</p>
+            <pre class="prettyprint js">
+                
+    let arrayBase = [1, 2, 34, 5, "Hola", "Que", "Ases"];
+
+    let [...copiarray] = arrayBase;
+            </pre>
+            <hr>
+            <p><strong>Exercise 2.</strong> Determine the value logged to the console on Google Chrome without running it. Write down the mechanism behind it using your own words.</p>
+                <pre class="transparent">
+                    <code class="language-javascript">
+    let f = () => [..."12345"];
+    
+    let A = f().map( f );
+    
+    console.table( A );
+                    </code>
+                </pre>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
+
+                F crea un array con 5 valores: ['1', '2', '3', '4', '5']
+                Cuando se hace el map, se genera una array de 2 dimensiones de 5 x 5.
+                Por la consola sale una tabla de 5 x 5
+            </pre>
+            <hr>
+            <p><strong>Exercise 3.</strong> Create an 10×10 matrix of null values</p>
+           
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
+
+                let emptyArray = () => new Array(10).fill(null);
+                let matrix = emptyArray().map(emptyArray)
+                console.table(matrix);
+            </pre>
+            <hr>
+            <p><strong>Exercise 4</strong> Rewrite the sumArgs function of this tutorial in ES2015, using a rest parameter and arrow functions.</p>
+            <pre class="transparent">
+                <code class="language-javascript">
+    function sumArgs() {
+        var result = 0;
+        for( var i = 0; i < arguments.length; ++i ) result += arguments[i];
+        return result;
+    }
+                </code>
+            </pre>
+
+            <h4>Solución</h4>
+            <pre class="prettyprint">
+
+    function sumArgs(...numeros) {
+        return numeros.reduce((sum, num) => sum + num, 0);
+    }
+            </pre>
+            <hr>
+            <p><strong>Exercise 5</strong> Complete the following ES2015 function that accepts two String arguments, and returns the length of the longest common substring in the two strings. The algorithmic complexity of the solution does not matter.</p>            
+            <pre class="transparent">
+                <code class="language-javascript">
+    let maxCommon = ([head1,...tail1], [head2,...tail2], len = 0) => {
+        if ( typeof head1 === 'undefined' || typeof head2 === 'undefined' ) /* Write code here */
+        if ( head1 === head2 ) /* Write code here */
+        let firstBranch = /* Write code here */
+        let secondBranch = /* Write code here */
+        return Math.max( ...[len, firstBranch, secondBranch ] );
+    }
+    
+    maxCommon( '123', '1' );
+    // 1
+    
+    maxCommon( '11111', '11f111g');
+    // 3
+    
+    maxCommon( 'abc', '111cab' );
+    // 2
+                </code>
+            </pre>
+            <br>
+            <h4>Solución</h4>
+            <pre class="prettyprint">
+
+    maxCommon = ([head1,...tail1], [head2,...tail2], len = 0) => {
+        if ( typeof head1 === 'undefined' || typeof head2 === 'undefined' ) 
+            return len;
+        if ( head1 === head2 ) 
+            return maxCommon( tail1, tail2, len+1 );
+        let firstBranch = maxCommon( tail1, [head2, ...tail2], 0 );
+        let secondBranch = maxCommon([head1,...tail1], tail2, 0 );
+        return Math.max( ...[len, firstBranch, secondBranch ]);
+    }
+            </pre>
+
+        </div> <!-- col-xs-12 -->
+    </div> <!-- container -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" integrity="sha256-Zb9yKJ/cfs+jG/zIOFL0QEuXr2CDKF7FR5YBJY3No+c=" crossorigin="anonymous"></script>
+    
+</body>
+</html>
